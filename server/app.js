@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const middleware = require('./middleware');
+const router = require('./routes');
 
 const app = express();
 
@@ -14,6 +15,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.get('/', (_request, response) => response.send('Happy Hacking!'));
+app.use('/api/v1', router);
 
 module.exports = app;
