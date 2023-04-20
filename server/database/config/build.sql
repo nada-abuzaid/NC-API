@@ -1,0 +1,14 @@
+BEGIN;
+
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+COMMIT;
